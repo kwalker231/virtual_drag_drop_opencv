@@ -1,0 +1,7 @@
+name: virtualDragDrop
+channels:
+  - abinit
+  - matsci
+  - defaults
+  - conda-forge
+prefix: C:\Users\Kevin Lim\Anaconda3\envs\virtualDragDrop\envs\virtualDragDrop
