@@ -12,14 +12,14 @@ the program will detect the landmark of your hand so that you could drag and dro
 For virtual environment setup, use 'environment.yml' file in 'anaconda_env' folder, name of the virtual environment is 'virtualDragDrop'.<br />
 
 How to create virtual environment:<br />
-  install Anaconda <br />
-  locate the directory where you installed Anaconda and drop the "environment.yml" file inside that folder <br />
-  open up Command Prompt under the same folder and run the following command: <br />
-    conda env create --file environment.yml <br />
+  -install Anaconda <br />
+  -locate the directory where you installed Anaconda and drop the "environment.yml" file inside that folder <br />
+  -open up Command Prompt under the same folder and run the following command: <br />
+    --conda env create --file environment.yml <br />
   after it is created, set virtual environment to "virtualDragDrop" <br />
 
 Packages Need to Be Installed: <br />
-numpy <br />
-keyboard <br />
-opencv-python <br />
-mediapipe <br />
+-numpy <br />
+-keyboard <br />
+-opencv-python <br />
+-mediapipe <br />
