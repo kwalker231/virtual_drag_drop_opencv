@@ -3,7 +3,7 @@
 
 Select/drag a rectangle with two fingers closed.<br />
 Open two fingers to release it.<br />
-press "esc" to close window.<br />
+press "q" to close window.<br />
 
 this program is created using opencv and cvzone.<br />
 the program will detect the landmark of your hand so that you could drag and drop the rectangles.<br />
