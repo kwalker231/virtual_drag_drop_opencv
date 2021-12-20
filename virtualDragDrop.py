@@ -31,12 +31,21 @@ handType1 = hand1["type"] #hand type left or right
 #########################################################
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 1920)    #set width resolution
-cap.set(4, 1080)    #set height resolution
+#width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+#height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+width = 1920
+height = 1080
+cap.set(3, width)    #set width resolution
+cap.set(4, height)    #set height resolution
 detector = HandDetector(detectionCon=0.8)  #init, 0.8 more accurate
 colorR = (125,0,255)
-
+colorC = (255, 150 , 125)
+#print(width,height)
+#rectangle
 cx, cy, w, h= 100, 100, 200, 200
+#circle
+rx, ry, r = 200, 100, 85
+
 
 class DragRect():
     def __init__(self, posCenter, size=[200,200]):
@@ -53,13 +62,32 @@ class DragRect():
         else:
             colorR = (125,0,255)
 
+class DragCircle():
+    def __init__(self, posCenter, radius=85):
+        self.posCenter = posCenter
+        self.radius = radius
+
+    def update(self, cursor):
+        rx, ry = self.posCenter
+        r = self.radius
+        dist = math.sqrt((cursor[0]-rx)**2 + (cursor[1]-ry)**2)
+        if dist < r:
+            colorC = (0,255,0)
+            self.posCenter = cursor
+        else:
+            colorC = (125,150,255)
+
 rectList = []
-for x in range(4):
-    rectList.append(DragRect([x*250+150,x*100+150]))
+for x in range(3):
+    rectList.append(DragRect([x*250+150,x*150+150]))
+
+circleList = []
+for x in range(2):
+    circleList.append(DragCircle([900, x*300+300]))
+
 
 while True:
-
-    success, img = cap.read()   #boilerplate for webcam
+    success, img = cap.read()   #template for webcam
     img = cv2.flip(img, 1) #0:vertical flip, 1:horizontal flip
     if img is None:
         print("camera not found")
@@ -90,16 +118,23 @@ while True:
                 for rect in rectList:
                     rect.update(cursor)
                     rect.update(cursor2)
+                for cir in circleList:
+                    cir.update(cursor)
+                    cir.update(cursor2)
 
             elif dist2 < 40:
                 cursor2 = lmlist2[8]
                 for rect in rectList:
                     rect.update(cursor2)
+                for cir in circleList:
+                    cir.update(cursor2)
 
             elif dist < 40:
                 cursor = lmlist1[8]
                 for rect in rectList:
                     rect.update(cursor)
+                for cir in circleList:
+                    cir.update(cursor)
 
         else:
             #index 8 is x,y of index finger tip, 12 is middle finger tip
@@ -110,6 +145,8 @@ while True:
                 cursor = lmlist1[8]
                 for rect in rectList:
                     rect.update(cursor)
+                for cir in circleList:
+                    cir.update(cursor)
 
         #l, info, img = detector.findDistance(lmlist1[8],lmlist1[12],img)
             print("dist: "+str(dist))
@@ -131,7 +168,11 @@ while True:
         w, h = rect.size
         cv2.rectangle(imgNew, (cx-w//2, cy-h//2), (cx+w//2, cy+h//2),
             colorR, cv2.FILLED)
-        cornerRect(imgNew,(cx-w//2, cy -h//2, w, h), 20, rt=0)
+        cornerRect(imgNew,(cx-w//2, cy-h//2, w, h), 20, rt=0)
+    for cir in circleList:
+        rx, ry = cir.posCenter
+        r = cir.radius
+        cv2.circle(imgNew, (rx, ry), r, colorC, -1)
 
     out = img.copy()
     alpha = 0.5
@@ -139,11 +180,12 @@ while True:
     out[mask] = cv2.addWeighted(img, alpha, imgNew, 1 - alpha, 0)[mask]
 
 ##########################################
-    cv2.imshow("Image", out)    #boilerplate for webcam (transperent)
-    #cv2.imshow("Image", img)    #boilerplate for webcam (solid)
-    cv2.waitKey(1)  #boilerplate for webcam
+    cv2.imshow("Image", out)    #temple for webcam (transperent)
+    #cv2.imshow("Image", img)    #temple for webcam (solid)
+    cv2.waitKey(1)  #temple for webcam
 
-    if keyboard.is_pressed('esc'):
-        cv2.waitKey(0)
+    if keyboard.is_pressed('q'):
+        cv2.waitKey(1)
         cv2.destroyAllWindows()
+        sys.exit()
         break
