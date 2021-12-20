@@ -83,7 +83,7 @@ for x in range(3):
 
 circleList = []
 for x in range(2):
-    circleList.append(DragCircle([900, x*300+300]))
+    circleList.append(DragCircle([900, x*200+250]))
 
 
 while True:
