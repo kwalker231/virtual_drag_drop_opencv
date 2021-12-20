@@ -4,6 +4,7 @@
 Select/drag a geometry with two fingers closed.<br />
 Open two fingers to release it.<br />
 press "q" to close window.<br />
+Drag/Drop with one hand or two hands <br />
 
 this program is created using opencv and cvzone.<br />
 the program will detect the landmark of your hand so that you could drag and drop the shapes.<br />
