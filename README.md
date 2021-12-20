@@ -17,8 +17,8 @@ How to create virtual environment:<br />
     conda env create --file environment.yml <br />
   after it is created, set virtual environment to "virtualDragDrop" <br />
 
-Packages Need to Be Installed:
-numpy
-keyboard
-opencv-python
-mediapipe
+Packages Need to Be Installed: <br />
+numpy <br />
+keyboard <br />
+opencv-python <br />
+mediapipe <br />
