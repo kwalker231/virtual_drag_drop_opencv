@@ -6,7 +6,7 @@ Open two fingers to release it.<br />
 press "q" to close window.<br />
 
 this program is created using opencv and cvzone.<br />
-the program will detect the landmark of your hand so that you could drag and drop the rectangles.<br />
+the program will detect the landmark of your hand so that you could drag and drop the shapes.<br />
 <br />
 For virtual environment setup, use 'environment.yml' file in 'anaconda_env' folder, name of the virtual environment is 'virtualDragDrop'.<br />
 
