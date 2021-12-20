@@ -1,18 +1,18 @@
 # Virtual Drag and Drop with opencv
 **virtual drag and drop rectangle boxes using finger tips**
 
-Select/drag a rectangle with two fingers closed.
-Open two fingers to release it.
-press "esc" to close window
+Select/drag a rectangle with two fingers closed.<br />
+Open two fingers to release it.<br />
+press "esc" to close window.<br />
 
-this program is created using opencv and cvzone
-the program will detect the landmark of your hand so that you could drag and drop the rectangles
+this program is created using opencv and cvzone.<br />
+the program will detect the landmark of your hand so that you could drag and drop the rectangles.<br />
+<br />
+For virtual environment setup, use 'environment.yml' file in 'anaconda_env' folder, name of the virtual environment is 'virtualDragDrop'.<br />
 
-For virtual environment setup, use 'environment.yml' file in 'anaconda_env' folder, name of the virtual environment is 'virtualDragDrop'
-
-How to create virtual environment:\n
-  install Anaconda
-  locate the directory where you installed Anaconda and drop the "environment.yml" file inside that folder
-  open up Command Prompt under the same folder and run the following command:
-    conda env create --file environment.yml
-  after it is created, set virtual environment to "virtualDragDrop"
+How to create virtual environment:<br />
+  install Anaconda <br />
+  locate the directory where you installed Anaconda and drop the "environment.yml" file inside that folder <br />
+  open up Command Prompt under the same folder and run the following command: <br />
+    conda env create --file environment.yml <br />
+  after it is created, set virtual environment to "virtualDragDrop" <br />
