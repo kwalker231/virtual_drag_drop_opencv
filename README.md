@@ -1,7 +1,7 @@
 # Virtual Drag and Drop with opencv
-**virtual drag and drop rectangle boxes using finger tips**
+**virtual drag and drop geometry using finger tips**
 
-Select/drag a rectangle with two fingers closed.<br />
+Select/drag a geometry with two fingers closed.<br />
 Open two fingers to release it.<br />
 press "q" to close window.<br />
 
